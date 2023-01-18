@@ -1,6 +1,6 @@
 variable "public_key_path" {
   description = "Path to public key file"
-  default     = "~/.ssh/id_rsa.pub"
+  default     = "~/root/.ssh/id_ed25519.pub"
 }
 
 variable "service_account_key_file" {

@@ -1,13 +1,13 @@
 {
   "variables": {
-     "service_account_key_file": "ajem36u3l6g0c1h9hne8",
+     "service_account_key_file": "ajetmbs3831or9bpsbnp",
      "folder_id": "b1gbobia866m35q0ad9v",
      "subnet_id": "e2lim4qvuhjn0qko593a"
   },
   "builders": [
     {
       "type":      "yandex",
-      "service_account_key_file" :  "ajem36u3l6g0c1h9hne8",
+      "service_account_key_file" :  "ajetmbs3831or9bpsbnp",
       "folder_id": "b1gbobia866m35q0ad9v",
       "subnet_id": "e2lim4qvuhjn0qko593a",
       "zone":      "ru-central1-b",

@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        YC_ACCOUNT_KEY_FILE = credentials('ajem36u3l6g0c1h9hne8')
+        YC_ACCOUNT_KEY_FILE = credentials('ajetmbs3831or9bpsbnp')
         YC_FOLDER_ID = credentials('b1gbobia866m35q0ad9v')
         YC_SUBNET_ID = credentials('e2lim4qvuhjn0qko593a')
 
