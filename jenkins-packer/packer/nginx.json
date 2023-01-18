@@ -1,23 +1,23 @@
 {
   "variables": {
-     "service_account_key_file": "{{env `YC_ACCOUNT_KEY_FILE`}}",
-     "folder_id": "{{env `YC_FOLDER_ID`}}",
-     "subnet_id": "{{env `YC_SUBNET_ID`}}"
+     "service_account_key_file": "ajem36u3l6g0c1h9hne8",
+     "folder_id": "b1gbobia866m35q0ad9v",
+     "subnet_id": "e2lim4qvuhjn0qko593a"
   },
   "builders": [
     {
       "type":      "yandex",
-      "service_account_key_file" :  "{{user `service_account_key_file`}}",
-      "folder_id": "{{user `folder_id`}}",
-      "subnet_id": "{{user `subnet_id`}}",
+      "service_account_key_file" :  "ajem36u3l6g0c1h9hne8",
+      "folder_id": "b1gbobia866m35q0ad9v",
+      "subnet_id": "e2lim4qvuhjn0qko593a",
       "zone":      "ru-central1-b",
 
-      "image_name":        "debian-11-nginx-{{isotime | clean_resource_name}}",
+      "image_name":        "debian-11-nginx-2023-01-18t04-05-25z",
       "image_family":      "debian-11-nginx",
       "image_description": "My very custom nginx proxy",
 
       "source_image_family":    "debian-11-base",
-      "source_image_folder_id": "{{user `folder_id`}}",
+      "source_image_folder_id": "b1gbobia866m35q0ad9v",
       "disk_type":              "network-nvme",
       "ssh_username":           "debian",
 
