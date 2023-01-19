@@ -12,12 +12,12 @@
       "subnet_id": "e2lim4qvuhjn0qko593a",
       "zone":      "ru-central1-b",
 
-      "image_name":        "debian-11-nginx-2023-01-18t04-05-25z",
+      "image_name":        "debian-11-nginx-v20220711",
       "image_family":      "debian-11-nginx",
       "image_description": "My very custom nginx proxy",
 
       "source_image_family":    "debian-11-base",
-      "source_image_folder_id": "b1gbobia866m35q0ad9v",
+      "source_image_folder_id": "fd83h3kff4ja27ejq0d9",
       "disk_type":              "network-nvme",
       "ssh_username":           "debian",
 
