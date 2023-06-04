@@ -1,18 +1,18 @@
 {
   "variables": {
-     "service_account_key_file": "liuyuanzhi",
-     "folder_id": "b1gbobia866m35q0ad9v",
-     "subnet_id": "e2lim4qvuhjn0qko593a"
+     "service_account_key_file": "{{env `YC_ACCOUNT_KEY_FILE`}}",
+     "folder_id": "{{env `YC_FOLDER_ID`}}",
+     "subnet_id": "{{env `YC_SUBNET_ID`}}"
   },
   "builders": [
     {
       "type":      "yandex",
-      "service_account_key_file" :  "liuyuanzhi",
-      "folder_id": "b1gbobia866m35q0ad9v",
-      "subnet_id": "e2lim4qvuhjn0qko593a",
+      "service_account_key_file" :  "{{user `service_account_key_file`}}",
+      "folder_id": "{{user `folder_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
       "zone":      "ru-central1-b",
 
-      "image_name":   "debian-11-base-v20220711",
+      "image_name":   "debian-11-base-{{isotime | clean_resource_name}}",
       "image_family": "debian-11-base",
       "image_description": "Yet another debian build 2",
 
@@ -38,4 +38,3 @@
     }
   ]
 }
-
