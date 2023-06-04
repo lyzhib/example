@@ -7,30 +7,30 @@ terraform {
 }
 
 provider "yandex" {
-  service_account_key_file = "ajetmbs3831or9bpsbnp"
-  folder_id                = "b1gbobia866m35q0ad9v"
+  service_account_key_file = "${var.service_account_key_file}"
+  folder_id                = "${var.folder_id}"
 }
 
 data "yandex_compute_image" "nginx_image" {
-  family    = "debian-11-nginx"
-  folder_id = "b1gbobia866m35q0ad9v"
+  family    = "${var.yc_image_family["nginx"]}"
+  folder_id = "${var.folder_id}"
 }
 
 data "yandex_compute_image" "django_image" {
-  family    = "debian-11-django"
-  folder_id = "b1gbobia866m35q0ad9v"
+  family    = "${var.yc_image_family["django"]}"
+  folder_id = "${var.folder_id}"
 }
 
 resource "yandex_compute_instance" "nginx" {
-  count       = 3
+  count       = "${var.cluster_size}"
   name        = "yc-nginx-instance-${count.index}"
   hostname    = "yc-nginx-instance-${count.index}"
   description = "yc-nginx-instance-${count.index} of my cluster"
-  zone        = "ru-central1-b"
+  zone        = "${element(var.zones, count.index)}"
 
   resources {
-    cores  = 2
-    memory = 2
+    cores  = "${var.instance_cores}"
+    memory = "${var.instance_memory}"
   }
 
   boot_disk {
@@ -43,12 +43,12 @@ resource "yandex_compute_instance" "nginx" {
 
 
   network_interface {
-    subnet_id = "e2lim4qvuhjn0qko593a"
+    subnet_id = "${element(local.subnet_ids, count.index)}"
     nat       = true
   }
 
   metadata = {
-    ssh-keys  = "ubuntu:${file("~/root/.ssh/id_ed25519.pub")}"
+    ssh-keys  = "ubuntu:${file("${var.public_key_path}")}"
     user-data = "${file("boostrap/metadata.yaml")}"
   }
 
@@ -58,15 +58,15 @@ resource "yandex_compute_instance" "nginx" {
 }
 
 resource "yandex_compute_instance" "django" {
-  count       = 3
+  count       = "${var.cluster_size}"
   name        = "yc-django-instance-${count.index}"
   hostname    = "yc-django-instance-${count.index}"
   description = "yc-django-instance-${count.index} of my cluster"
-  zone        = "ru-central1-b"
+  zone        = "${element(var.zones, count.index)}"
 
   resources {
-    cores  = 2
-    memory = 2
+    cores  = "${var.instance_cores}"
+    memory = "${var.instance_memory}"
   }
 
   boot_disk {
@@ -79,12 +79,12 @@ resource "yandex_compute_instance" "django" {
 
 
   network_interface {
-    subnet_id = "e2lim4qvuhjn0qko593a"
+    subnet_id = "${element(local.subnet_ids, count.index)}"
     nat       = false
   }
 
   metadata = {
-    ssh-keys  = "ubuntu:${file("~/root/.ssh/id_ed25519.pub")}"
+    ssh-keys  = "ubuntu:${file("${var.public_key_path}")}"
     user-data = "${file("boostrap/metadata.yaml")}"
   }
 
