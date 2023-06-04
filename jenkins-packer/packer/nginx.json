@@ -1,8 +1,8 @@
 {
   "variables": {
-     "service_account_key_file": "{{env `YC_ACCOUNT_KEY_FILE`}}",
-     "folder_id": "{{env `YC_FOLDER_ID`}}",
-     "subnet_id": "{{env `YC_SUBNET_ID`}}"
+     "service_account_key_file": "ajehfdqbbmi4sf7cq60r",
+     "folder_id": "b1gbobia866m35q0ad9v",
+     "subnet_id": "e2lim4qvuhjn0qko593a"
   },
   "builders": [
     {
@@ -12,9 +12,9 @@
       "subnet_id": "{{user `subnet_id`}}",
       "zone":      "ru-central1-b",
 
-      "image_name":        "debian-11-django-{{isotime | clean_resource_name}}",
-      "image_family":      "debian-11-django",
-      "image_description": "My very custom Django build",
+      "image_name":        "debian-11-nginx-2023-01-18t04-05-25z",
+      "image_family":      "debian-11-nginx",
+      "image_description": "My very custom nginx proxy",
 
       "source_image_family":    "debian-11-base",
       "source_image_folder_id": "{{user `folder_id`}}",
@@ -28,13 +28,14 @@
     {
       "type": "shell",
       "inline": [
-        "echo 'installing django'",
+        "echo 'installing nginx'",
         "until ping -c1 mirror.yandex.ru &>/dev/null; do :; done",
         "sudo apt-get update -y",
         "sleep 10",
 	"export DEBIAN_FRONTEND=noninteractive",
-        "sudo apt-get install -y python3-pip",
-	"sudo pip3 install Django"
+        "sudo apt-get install -y nginx",
+        "sudo systemctl enable nginx.service",
+        "curl localhost"
       ]
     }
   ]
