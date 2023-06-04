@@ -9,10 +9,10 @@ output "django_ips" {
 
 
 output "subnet_ids" {
-  value = "e2lim4qvuhjn0qko593a"
+  value = "${local.subnet_ids}"
 }
 
 
 output "folder_id" {
-  value = "b1gbobia866m35q0ad9v"
+  value = "${var.folder_id}"
 }
