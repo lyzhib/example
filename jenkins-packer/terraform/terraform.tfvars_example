@@ -1,0 +1,3 @@
+service_account_key_file  =  ""
+folder_id = ""
+public_key_path = "~/.ssh/id_rsa.pub"
