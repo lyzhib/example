@@ -6,20 +6,20 @@
   },
   "builders": [
     {
-      "type":      "yandex",
-      "service_account_key_file" :  "ajehfdqbbmi4sf7cq60r",
+      "type": "yandex",
+      "service_account_key_file": "ajehfdqbbmi4sf7cq60r",
       "folder_id": "b1gbobia866m35q0ad9v",
       "subnet_id": "e2lim4qvuhjn0qko593a",
-      "zone":      "ru-central1-b",
+      "zone": "ru-central1-b",
 
-      "image_name":        "debian-11-django-2023-01-18t04-05-25z",
-      "image_family":      "debian-11-django",
+      "image_name": "debian-11-django-2023-01-18t04-05-25z",
+      "image_family": "debian-11-django",
       "image_description": "My very custom Django build",
 
-      "source_image_family":    "debian-11-base",
+      "source_image_family": "debian-11-base",
       "source_image_folder_id": "b1gbobia866m35q0ad9v",
-      "disk_type":              "network-nvme",
-      "ssh_username":           "debian",
+      "disk_type": "network-nvme",
+      "ssh_username": "debian",
 
       "use_ipv4_nat": true
     }
