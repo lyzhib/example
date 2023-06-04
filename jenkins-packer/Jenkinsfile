@@ -5,14 +5,12 @@ pipeline {
         YC_FOLDER_ID = "b1gbobia866m35q0ad9v"
         YC_SUBNET_ID = "e2lim4qvuhjn0qko593a"
 
-        PACKER_SH1 = '/opt/yandex-packer/packer init'
-        PACKER_SH2 = '/opt/yandex-packer/packer build -color=false' 
+        PACKER_SH = '/opt/yandex-packer/packer build -color=false' 
     }
     stages {
         stage('Core') {
             steps {
-                sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/base.json"
-                sh label: 'my-defined-label', script: "${env.PACKER_SH2} ./jenkins-packer/packer/base.json"
+                sh label: 'my-defined-label', script: "${env.PACKER_SH} ./jenkins-packer/packer/base.json"
             }
         }
         stage('Role-Based') {
@@ -20,11 +18,9 @@ pipeline {
                 parallel(
                     nginx: {
                         sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/nginx.json"
-                        sh label: 'my-defined-label', script: "${env.PACKER_SH2} ./jenkins-packer/packer/nginx.json"
                     },
                     django: {
-                        sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/django.json"
-                        sh label: 'my-defined-label', script: "${env.PACKER_SH2} ./jenkins-packer/packer/django.json" 
+                        sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/django.json" 
                     }
                 )
             }
