@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        YC_ACCOUNT_KEY_FILE = "ajehfdqbbmi4sf7cq60r"
+        YC_ACCOUNT_KEY_FILE = "/home/user/liuyuanzhi.json"
         YC_FOLDER_ID = "b1gbobia866m35q0ad9v"
         YC_SUBNET_ID = "e2lim4qvuhjn0qko593a"
 
