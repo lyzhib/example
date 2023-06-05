@@ -1,8 +1,8 @@
 {
   "variables": {
-     "service_account_key_file": "{{env `YC_ACCOUNT_KEY_FILE`}}",
-     "folder_id": "{{env `YC_FOLDER_ID`}}",
-     "subnet_id": "{{env `YC_SUBNET_ID`}}"
+     "service_account_key_file": "ajehfdqbbmi4sf7cq60r",
+     "folder_id": "b1gbobia866m35q0ad9v",
+     "subnet_id": "e2lim4qvuhjn0qko593a"
   },
   "builders": [
     {
