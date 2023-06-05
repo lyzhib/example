@@ -12,7 +12,7 @@
       "subnet_id": "{{user `subnet_id`}}",
       "zone": "ru-central1-b",
 
-      "image_name": "debian-11-base-2023-01-18t04-05-25z",
+      "image_name": "debian-11-base-{{isotime | clean_resource_name}}",
       "image_family": "debian-11-base",
       "image_description": "Yet another debian build 2",
 
