@@ -7,9 +7,9 @@
   "builders": [
     {
       "type": "yandex",
-      "service_account_key_file": "ajehfdqbbmi4sf7cq60r",
-      "folder_id": "b1gbobia866m35q0ad9v",
-      "subnet_id": "e2lim4qvuhjn0qko593a",
+      "service_account_key_file": "{{user `service_account_key_file`}}",
+      "folder_id": "{{user `folder_id`}}",
+      "subnet_id": "{{user `subnet_id`}}",
       "zone": "ru-central1-b",
 
       "image_name": "debian-11-django-2023-01-18t04-05-25z",
@@ -17,7 +17,7 @@
       "image_description": "My very custom Django build",
 
       "source_image_family": "debian-11-base",
-      "source_image_folder_id": "b1gbobia866m35q0ad9v",
+      "source_image_folder_id": "{{user `folder_id`}}",
       "disk_type": "network-nvme",
       "ssh_username": "debian",
 

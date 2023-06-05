@@ -17,10 +17,10 @@ pipeline {
             steps {
                 parallel(
                     nginx: {
-                        sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/nginx.json"
+                        sh label: 'my-defined-label', script: "${env.PACKER_SH} ./jenkins-packer/packer/nginx.json"
                     },
                     django: {
-                        sh label: 'my-defined-label', script: "${env.PACKER_SH1} ./jenkins-packer/packer/django.json" 
+                        sh label: 'my-defined-label', script: "${env.PACKER_SH} ./jenkins-packer/packer/django.json" 
                     }
                 )
             }
